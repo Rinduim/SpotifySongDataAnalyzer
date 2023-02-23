@@ -17,10 +17,13 @@ def main():
     dictionary = Counter(songs)
 
     # OUTPUT STUFF
-    print_top_songs(dictionary, 20)
-    print_song_stream_amount(dictionary,"Legendenstatus","Dame")
+    print_top_songs(dictionary, 10)
+    print_song_stream_amount(dictionary,"Get Lucky (feat. Pharrell Williams & Nile Rodgers) - Radio Edit","Daft Punk")
     print_latest_songs(songs_time, 5)
-    print_oldest_songs(songs_time, 5)
+    print_oldest_songs(songs_time, 600)
+    print_streams_by_artist(songs, "Dame")
+    print_streams_by_artist(songs, "Hollywood Undead")
+    print_streams_by_artist(songs, "Bastille")
 
 def print_top_songs(dictionary, amount): 
     print("The top", amount, "songs you streamed most:")
@@ -45,6 +48,17 @@ def print_oldest_songs(songs_time, amount):
     for i in range(amount):
         print(songs_time[i])
     print()
+
+def print_streams_by_artist(songs, artist):
+    counter = 0
+    for song in songs:
+        if song[1] == artist:
+            counter += 1
+    
+    print("You listened to ", artist, str(counter), "times.")
+    print()
+
+    
 
 if __name__ == "__main__":
     main()

@@ -5,8 +5,11 @@ def main():
     songs_time = []
     songs = []
     artists = []
-    for i in range(8):
-        f = open("res\endsong_" + str(i) + ".json", encoding="utf8")
+    for i in range(100):
+        try:
+            f = open("res\endsong_" + str(i) + ".json", encoding="utf8")
+        except:
+            break
         string = f.read()
         y = json.loads(string)
         for entry in y:
